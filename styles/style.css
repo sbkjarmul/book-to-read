@@ -7,17 +7,29 @@
 body {
   background: white;
   font-family: "Quicksand", sans-serif;
+}
+
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 0 2.5rem;
+  padding-bottom: 5rem;
+  transition: transform 0.5s ease-in-out;
+  border-top: 1rem solid rgb(30, 141, 104);
+  border-top: 1rem solid rgb(141, 30, 30);
+}
+
+.container.advance {
+  transform: translateY(29vh);
 }
 
 h1 {
-  margin-top: 2.5rem;
+  margin-top: 1.5rem;
   color: rgb(30, 141, 104);
+  color: rgb(141, 30, 30);
   border-bottom: 1px solid rgb(30, 141, 104);
+  border-bottom: 1px solid rgb(141, 30, 30);
   padding: 1rem;
   margin-bottom: 1rem;
 }
@@ -45,6 +57,7 @@ form .form-box input[type="text"] {
   width: 15rem;
   font-size: 0.9rem;
   border: 1px solid rgb(30, 141, 104);
+  border: 1px solid rgb(141, 30, 30);
   border-radius: 5px;
 }
 
@@ -55,6 +68,7 @@ form .form-box select {
   width: 12rem;
   font-size: 0.9rem;
   border: 1px solid rgb(30, 141, 104);
+  border: 1px solid rgb(141, 30, 30);
   border-radius: 5px;
 }
 
@@ -77,6 +91,7 @@ form .form-box .priority-level {
   padding: 0.5rem 1rem;
   border: 1px solid #7e7e7e;
   color: rgb(30, 141, 104);
+  color: rgb(141, 30, 30);
 }
 
 form .form-box input[type="range"]:focus {
@@ -88,6 +103,7 @@ form .form-box input[type="range"]::-webkit-slider-thumb {
   width: 1rem;
   height: 1rem;
   background-color: rgb(30, 141, 104);
+  background-color: rgb(141, 30, 30);
   border-radius: 100%;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
   border: none;
@@ -98,18 +114,20 @@ form .form-box input[type="range"]::-moz-range-thumb {
   width: 1rem;
   height: 1rem;
   background-color: rgb(30, 141, 104);
+  background-color: rgb(141, 30, 30);
   border-radius: 100%;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
   border: none;
 }
 
-form button {
+form button.add-book {
   margin-top: 1rem;
   padding: 1rem 2rem;
   font-size: 1rem;
   width: fit-content;
   border: none;
-  background: rgb(30, 141, 104);
+  background: rgb(24, 112, 83);
+  background: rgb(141, 30, 30);
   color: white;
   border-radius: 5px;
   cursor: pointer;
@@ -117,6 +135,7 @@ form button {
 
 form button:hover {
   background: rgb(24, 112, 83);
+  background: rgb(112, 24, 24);
 }
 
 table {
@@ -140,7 +159,9 @@ table td {
 }
 
 table tr th {
+  cursor: pointer;
   background: rgb(30, 141, 104);
+  background: rgb(141, 30, 30);
 }
 
 table tr th.delete-column {
@@ -149,10 +170,12 @@ table tr th.delete-column {
 
 table tbody tr {
   border-bottom: 1px solid #dddddd;
+  transition: all 0.25s ease-in-out;
 }
 
 table tbody tr.active {
   background-color: rgb(30, 141, 104) !important;
+  background-color: rgb(141, 30, 30) !important;
   color: white;
 }
 
@@ -162,6 +185,31 @@ table tbody tr:nth-of-type(even) {
 
 table tbody tr:last-of-type {
   border-bottom: 2px solid rgb(30, 141, 104);
+  border-bottom: 2px solid rgb(141, 30, 30);
+}
+
+th.sort-asc,
+th.sort-desc {
+  background-color: rgb(24, 114, 84);
+  background-color: rgb(114, 24, 24);
+}
+
+th.sort-asc::after {
+  content: "\f106";
+}
+
+th.sort-desc::after {
+  content: "\f107";
+}
+
+th.sort-asc::after,
+th.sort-desc::after {
+  font-family: "Font Awesome 5 Free";
+  margin-left: 5px;
+}
+
+button:focus {
+  outline: none;
 }
 
 button.delete-btn {
@@ -175,6 +223,7 @@ button.delete-btn {
   cursor: pointer;
   background: none;
   color: rgb(30, 141, 104);
+  color: rgb(141, 30, 30);
   display: none;
 }
 
@@ -188,4 +237,84 @@ button.delete-btn:focus {
 
 button.delete-btn .fa-times {
   pointer-events: none;
+}
+
+.advanced {
+  height: 30vh;
+  width: 100%;
+  position: absolute;
+  background: rgb(30, 141, 104);
+  background: rgb(141, 30, 30);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  pointer-events: none;
+  transform: translateY(-30vh);
+  transition: all 0.5s ease-in-out;
+  color: white;
+}
+
+.advanced.active {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+.advanced-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgb(30, 141, 104);
+  color: rgb(141, 30, 30);
+  font-size: 1.5rem;
+  margin: 0.25rem;
+  transition: transform 0.5s ease;
+}
+
+.advanced-btn:focus {
+  outline: none;
+}
+
+.advanced-btn:hover {
+  transform: scale(1.1);
+}
+
+.advanced-btn i {
+  pointer-events: none;
+}
+
+form .form-box select.filter-option {
+  width: 7.5rem;
+}
+
+.stat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 1rem;
+  color: white;
+}
+
+.stat-box h1 {
+  font-size: 1.8rem;
+  color: white;
+  margin-top: 1rem;
+  border-color: white;
+  padding: 0.8rem;
+}
+
+.statistics {
+  display: flex;
+  align-items: center;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 }
