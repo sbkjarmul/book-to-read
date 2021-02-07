@@ -11,7 +11,7 @@ The project was created in order to do a recruitment task.
 - Vanilla Javascript
 - Webpack
 
-## Functions
+## Functionality
 
 ![Adding books](https://github.com/sbkjarmul/book-to-read/blob/master/screens/1.jpg)
 
