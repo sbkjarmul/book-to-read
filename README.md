@@ -31,6 +31,18 @@ If u click at the table's row, you can simply delete book from there and from th
 
 ![Deleting books](https://github.com/sbkjarmul/book-to-read/blob/master/screens/2.jpg)
 
+### Editing the added book
+
+To edit the right book, you have to activate the row by clicking it firstly. The next step is changing values, by editing input fields above the table. To save changes just click the "Save" button.
+
+![Editing](https://github.com/sbkjarmul/book-to-read/blob/master/screens/7.jpg)
+
+### Sorting the table
+
+There is a sort option. To turn on this function just click on the column's header. You can search by ascending and descending.
+
+![Sorting the table](https://github.com/sbkjarmul/book-to-read/blob/master/screens/6.jpg)
+
 ### Filtering books
 
 By clicking the arrow on the top, you can show extra functions like filtering.
