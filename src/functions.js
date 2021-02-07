@@ -506,8 +506,6 @@ function editBook(e) {
     deleteBtn.classList.remove("active");
     row.classList.remove("active");
   }
-
+  makeCategories();
   localStorage.setItem("books", JSON.stringify(savedBooks));
-
-  console.log(JSON.stringify(savedBooks));
 }
