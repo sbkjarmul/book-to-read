@@ -502,9 +502,15 @@ button.close-category {
     padding: 0.8rem 2rem !important;
     font-size: 0.9rem !important;
   }
+
   .delete-btn {
     transform: translate(2rem, -50%) !important;
     font-size: 0.8rem !important;
+  }
+
+  .new-category-box {
+    width: 18rem;
+    height: 14rem;
   }
 }
 
