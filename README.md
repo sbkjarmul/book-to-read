@@ -23,11 +23,25 @@ You can add book to table, by filling all inputs and clicking "Add Book" button.
 
 There is a counter in top-right corner.
 
+![Counting books](https://github.com/sbkjarmul/book-to-read/blob/master/screens/3.jpg)
+
 ### Deleting existing books
 
 If u click at the table's row, you can simply delete book from there and from the memory, by clicking 'x' sign.
 
 ![Deleting books](https://github.com/sbkjarmul/book-to-read/blob/master/screens/2.jpg)
+
+### Filtering books
+
+By clicking the arrow on the top, you can show extra functions like filtering.
+
+![Extra functions](https://github.com/sbkjarmul/book-to-read/blob/master/screens/4.jpg)
+
+### All categories' counters
+
+There are the counters in this extra section. You can add new category for your books, by clicking "Add category" button.
+
+![Categories` counters](https://github.com/sbkjarmul/book-to-read/blob/master/screens/5.jpg)
 
 ## License & copyright
 
