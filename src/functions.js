@@ -256,6 +256,7 @@ function sortTable(e, asc = true) {
   const ascToNumber = asc ? 1 : -1;
   const column = e.target.textContent;
   let sortedTable = [];
+
   switch (column) {
     case "Title":
       sortedTable = savedBooks.sort((a, b) => {

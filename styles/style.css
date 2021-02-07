@@ -463,7 +463,7 @@ button.close-category {
 
 @media (max-width: 575.98px) {
   table {
-    min-width: 200px;
+    min-width: 300px;
   }
   table th,
   table td {
