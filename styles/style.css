@@ -447,7 +447,7 @@ button.close-category {
 
   form .form-box select.filter-option {
     font-size: 0.8rem;
-    width: 5rem;
+    width: 7.5rem;
   }
   form .form-box input[type="text"] {
     width: 10rem;
@@ -456,24 +456,37 @@ button.close-category {
   table th,
   table td {
     position: relative;
-    padding: 0.5rem 0.8rem;
+    padding: 0.8rem 0.8rem;
+    font-size: 0.75rem !important;
   }
 }
 
 @media (max-width: 575.98px) {
   table {
-    min-width: 250px;
+    min-width: 200px;
   }
   table th,
   table td {
     position: relative;
-    padding: 0.5rem 0.7rem;
-    font-size: 0.5rem;
+    padding: 1rem 0.5rem;
+    font-size: 0.6rem !important;
   }
 
   .advanced {
     height: 25rem;
     transform: translateY(-25rem);
+  }
+
+  .advanced form .form-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .advanced form .form-box label,
+  .advanced form .form-box select,
+  .advanced form .form-box input[type="text"] {
+    margin: 0.5rem;
   }
 
   .container.advance {
@@ -496,6 +509,12 @@ button.close-category {
 }
 
 @media (max-width: 375px) {
+  table th,
+  table td {
+    padding: 1rem 0.5rem !important;
+    font-size: 0.5rem !important;
+  }
+
   h1 {
     font-size: 1.2rem !important;
   }
@@ -505,19 +524,7 @@ button.close-category {
     transform: translateY(-32rem);
   }
 
-  .advanced form .form-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
   .container.advance {
     transform: translateY(31.5rem);
-  }
-
-  .advanced form .form-box label,
-  .advanced form .form-box select,
-  .advanced form .form-box input[type="text"] {
-    margin: 0.5rem;
   }
 }
