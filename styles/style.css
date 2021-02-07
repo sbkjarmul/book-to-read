@@ -21,7 +21,7 @@ body {
 }
 
 .container.advance {
-  transform: translateY(29vh);
+  transform: translateY(14.5rem);
 }
 
 h1 {
@@ -242,7 +242,7 @@ button.delete-btn .fa-times {
 }
 
 .advanced {
-  height: 30vh;
+  height: 15rem;
   width: 100%;
   position: absolute;
   background: rgb(30, 141, 104);
@@ -314,6 +314,8 @@ form .form-box select.filter-option {
 .statistics {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .stats {
@@ -426,4 +428,58 @@ button.close-category {
 .added-items .counter {
   font-weight: 500;
   color: rgb(141, 30, 30);
+}
+
+@media (max-width: 767.98px) {
+  .stats {
+    font-size: 0.9rem;
+  }
+  .advanced {
+    height: 20rem;
+    transform: translateY(-20rem);
+  }
+
+  .container.advance {
+    transform: translateY(19.5rem);
+  }
+
+  form .form-box select.filter-option {
+    font-size: 0.8rem;
+    width: 5rem;
+  }
+  form .form-box input[type="text"] {
+    width: 10rem;
+  }
+
+  table th,
+  table td {
+    position: relative;
+    padding: 0.5rem 0.8rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  table {
+    min-width: 250px;
+  }
+  table th,
+  table td {
+    position: relative;
+    padding: 0.5rem 0.7rem;
+    font-size: 0.5rem;
+  }
+
+  .add-book {
+    padding: 0.8rem 1.2rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  .change-book {
+    padding: 0.8rem 2rem !important;
+    font-size: 0.9rem !important;
+  }
+  .delete-btn {
+    transform: translate(2rem, -50%) !important;
+    font-size: 0.8rem !important;
+  }
 }

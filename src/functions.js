@@ -64,6 +64,7 @@ function addBook(e) {
   priorityCol.innerText = inputPriority.value;
 
   let bookNr = savedBooks.length;
+
   const bookObj = {
     title: titleCol.innerText,
     author: authorCol.innerText,
@@ -71,6 +72,7 @@ function addBook(e) {
     priority: priorityCol.innerText,
     nr: bookNr,
   };
+
   savedBooks.push(bookObj);
   row.appendChild(titleCol);
   row.appendChild(authorCol);
@@ -233,6 +235,7 @@ function getLocal() {
       counterEl.innerText = countRows();
     });
   }
+
   if (localStorage.getItem("categories") === null) {
     localCategories = [];
   } else {
@@ -403,6 +406,7 @@ function sortTable(e, asc = true) {
   columnHeads.forEach((head) => {
     head.classList.remove("sort-asc", "sort-desc");
   });
+
   e.target.classList.toggle("sort-asc", asc);
   e.target.classList.toggle("sort-desc", !asc);
 
@@ -440,9 +444,11 @@ function makeCategories() {
 function countCategory(name) {
   const rows = tableBodyEl.querySelectorAll("tr");
   let count = 0;
+
   rows.forEach((row) => {
     count = name === row.children[2].innerText ? count + 1 : count;
   });
+
   return count;
 }
 
@@ -514,6 +520,7 @@ function editBook(e) {
     deleteBtn.classList.remove("active");
     row.classList.remove("active");
   }
+
   makeCategories();
   localStorage.setItem("books", JSON.stringify(savedBooks));
 }
