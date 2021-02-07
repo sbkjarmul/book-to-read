@@ -51,7 +51,8 @@ form .form-box {
   width: 100%;
 }
 
-form .form-box input[type="text"] {
+form .form-box input[type="text"],
+.new-category-box input[type="text"] {
   padding: 0.5rem 1rem;
   margin-left: 2rem;
   width: 15rem;
@@ -120,7 +121,8 @@ form .form-box input[type="range"]::-moz-range-thumb {
   border: none;
 }
 
-form button.add-book {
+form .button-box button,
+.add-category-btn {
   margin-top: 1rem;
   padding: 1rem 2rem;
   font-size: 1rem;
@@ -304,6 +306,9 @@ form .form-box select.filter-option {
   margin-top: 1rem;
   border-color: white;
   padding: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .statistics {
@@ -321,4 +326,104 @@ form .form-box select.filter-option {
 
 input:focus {
   outline: none;
+}
+
+.add-category {
+  position: relative;
+  margin-left: 1rem;
+  padding: 0.25rem 0.3rem;
+  font-size: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  color: rgb(141, 30, 30);
+  background-color: white;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.add-category i {
+  pointer-events: none;
+}
+
+.add-category:hover {
+  transform: scale(1.1);
+}
+
+.new-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  transition: all 0.5s ease;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-container.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.new-category-box {
+  position: relative;
+  width: 25rem;
+  height: 15rem;
+  border-radius: 5px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.new-category-box input[type="text"] {
+  margin: 0;
+}
+
+button.close-category {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+  font-size: 1rem;
+  color: rgb(141, 30, 30);
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.change-book {
+  padding-left: 3rem !important;
+  padding-right: 3rem !important;
+  background-color: rgba(129, 27, 27, 0.493) !important;
+  transition: all 0.5s ease;
+  cursor: none;
+}
+
+.change-book.active {
+  background-color: rgb(141, 30, 30) !important;
+  cursor: pointer;
+}
+
+.change-book.active:hover {
+  background-color: rgb(112, 24, 24) !important;
+}
+
+.added-items {
+  align-self: flex-end;
+  margin-right: 10%;
+  border: 1px solid rgb(141, 30, 30);
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.added-items .counter {
+  font-weight: 500;
+  color: rgb(141, 30, 30);
 }

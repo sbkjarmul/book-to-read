@@ -14,6 +14,11 @@ import {
   filterSearch,
   filterOption,
   columnHeads,
+  addCategoryBtn,
+  newCategory,
+  newCategoryBtn,
+  closeCategoryBtn,
+  changeBookBtn,
 } from "./variables";
 
 import {
@@ -30,6 +35,9 @@ import {
   sortTable,
   countCategory,
   makeCategories,
+  addNewCategory,
+  saveCategory,
+  editBook,
 } from "./functions";
 
 submitBtn.addEventListener("click", addBook);
@@ -55,4 +63,21 @@ columnHeads.forEach((head) => {
     const isAscending = head.classList.contains("sort-asc");
     sortTable(e, !isAscending);
   });
+});
+
+addCategoryBtn.addEventListener("click", () => {
+  addNewCategory();
+  newCategory.classList.remove("active");
+});
+
+closeCategoryBtn.addEventListener("click", () => {
+  newCategory.classList.remove("active");
+});
+
+newCategoryBtn.addEventListener("click", () => {
+  newCategory.classList.add("active");
+});
+
+changeBookBtn.addEventListener("click", (e) => {
+  editBook(e);
 });

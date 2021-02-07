@@ -20,7 +20,12 @@
   <body>
     <div class="advanced">
       <div class="stat-box">
-        <h1>Book Categories</h1>
+        <h1>
+          Book Categories
+          <button class="add-category">
+            <i class="fas fa-plus"></i> Add new
+          </button>
+        </h1>
         <div class="statistics"></div>
       </div>
       <form>
@@ -40,8 +45,8 @@
       <button type="button" class="advanced-btn">
         <i class="fas fa-chevron-down"></i>
       </button>
-      <h1>Books to read (<span class="counter"></span>)</h1>
-
+      <div class="added-items">Added items: <span class="counter"></span></div>
+      <h1>Books to read</h1>
       <form>
         <div class="form-box">
           <label for="title">Title</label>
@@ -76,10 +81,11 @@
           />
           <span class="priority-level">3</span>
         </div>
-
-        <button type="submit" class="add-book">Add book</button>
+        <div class="button-box">
+          <button type="submit" class="add-book">Add book</button>
+          <button type="submit" class="change-book">Save</button>
+        </div>
       </form>
-
       <table>
         <thead>
           <tr>
@@ -91,6 +97,16 @@
         </thead>
         <tbody></tbody>
       </table>
+    </div>
+    <div class="new-container">
+      <div class="new-category-box">
+        <button class="close-category">
+          <i class="fas fa-times-circle"></i>
+        </button>
+        <h1>New category</h1>
+        <input type="text" name="new-category" id="new-category" />
+        <button class="add-category-btn">Add</button>
+      </div>
     </div>
     <script src="./dist/bundle.js"></script>
     <!-- <script src="./src/index.js"></script> -->
