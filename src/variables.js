@@ -15,4 +15,10 @@ export const newCategory = document.querySelector(".new-container");
 export const newCategoryBtn = document.querySelector(".add-category");
 export const closeCategoryBtn = document.querySelector(".close-category");
 export const changeBookBtn = document.querySelector(".change-book");
+
+export const inputTitle = document.querySelector(".title");
+export const inputAuthor = document.querySelector(".author");
+export const inputCategory = document.querySelector(".category");
+export const inputPriority = document.querySelector(".priority");
+
 export const savedBooks = [];

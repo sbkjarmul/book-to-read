@@ -1,16 +1,9 @@
 import "../styles/style.css";
 
 import {
-  tableEl,
   submitBtn,
-  tableBodyEl,
-  counterEl,
   priorityEl,
-  savedBooks,
   advancedBtn,
-  advancedEl,
-  containerEl,
-  priorityLvl,
   filterSearch,
   filterOption,
   columnHeads,
@@ -24,19 +17,12 @@ import {
 import {
   updatePriorityLvl,
   addBook,
-  activateRow,
-  deleteRow,
-  countRows,
-  saveToLocal,
   getLocal,
-  deleteObject,
   toggleAdvanced,
   searchTable,
   sortTable,
-  countCategory,
   makeCategories,
   addNewCategory,
-  saveCategory,
   editBook,
 } from "./functions";
 

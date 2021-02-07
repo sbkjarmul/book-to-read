@@ -1,6 +1,4 @@
 import {
-  tableEl,
-  submitBtn,
   tableBodyEl,
   counterEl,
   priorityEl,
@@ -9,10 +7,12 @@ import {
   advancedEl,
   containerEl,
   priorityLvl,
-  filterSearch,
-  filterOption,
   columnHeads,
   changeBookBtn,
+  inputTitle,
+  inputAuthor,
+  inputCategory,
+  inputPriority,
 } from "./variables";
 
 export {
@@ -41,45 +41,13 @@ function updatePriorityLvl() {
 
 function addBook(e) {
   e.preventDefault();
-  const tbodyEl = tableEl.children[1];
 
-  const row = document.createElement("tr");
-  const titleCol = document.createElement("td");
-  const authorCol = document.createElement("td");
-  const categoryCol = document.createElement("td");
-  const priorityCol = document.createElement("td");
-
-  const deleteBtn = document.createElement("button");
-  deleteBtn.classList.add("delete-btn");
-  deleteBtn.innerHTML = '<i class="fas fa-times"></i>';
-
-  const inputTitle = document.querySelector(".title");
-  const inputAuthor = document.querySelector(".author");
-  const inputCategory = document.querySelector(".category");
-  const inputPriority = document.querySelector(".priority");
-
-  titleCol.innerText = inputTitle.value;
-  authorCol.innerText = inputAuthor.value;
-  categoryCol.innerText = inputCategory.value;
-  priorityCol.innerText = inputPriority.value;
-
-  let bookNr = savedBooks.length;
-
-  const bookObj = {
-    title: titleCol.innerText,
-    author: authorCol.innerText,
-    category: categoryCol.innerText,
-    priority: priorityCol.innerText,
-    nr: bookNr,
-  };
-
-  savedBooks.push(bookObj);
-  row.appendChild(titleCol);
-  row.appendChild(authorCol);
-  row.appendChild(categoryCol);
-  row.appendChild(priorityCol);
-  priorityCol.appendChild(deleteBtn);
-  tbodyEl.appendChild(row);
+  const bookObj = createBook(
+    inputTitle.value,
+    inputAuthor.value,
+    inputCategory.value,
+    inputPriority.value
+  );
 
   inputTitle.value = "";
   inputAuthor.value = "";
@@ -87,12 +55,7 @@ function addBook(e) {
   inputPriority.value = "";
   priorityLvl.innerText = "3";
 
-  deleteBtn.addEventListener("click", (e) => {
-    deleteRow(e);
-  });
-  row.addEventListener("click", (e) => {
-    activateRow(e);
-  });
+  savedBooks.push(bookObj);
 
   counterEl.innerText = countRows();
 
@@ -123,11 +86,6 @@ function activateRow(e) {
     } else {
       changeBookBtn.classList.remove("active");
     }
-
-    const inputTitle = document.querySelector(".title");
-    const inputAuthor = document.querySelector(".author");
-    const inputCategory = document.querySelector(".category");
-    const inputPriority = document.querySelector(".priority");
 
     if (row.classList.contains("active")) {
       inputTitle.value = row.children[0].innerText;
@@ -190,50 +148,16 @@ function getLocal() {
   } else {
     localBooks = JSON.parse(localStorage.getItem("books"));
     localBooks.forEach((book) => {
-      const tbodyEl = tableEl.children[1];
-      const row = document.createElement("tr");
-      const titleCol = document.createElement("td");
-      const authorCol = document.createElement("td");
-      const categoryCol = document.createElement("td");
-      const priorityCol = document.createElement("td");
-
-      const deleteBtn = document.createElement("button");
-      deleteBtn.classList.add("delete-btn");
-      deleteBtn.innerHTML = '<i class="fas fa-times"></i>';
-
-      titleCol.innerText = book.title;
-      authorCol.innerText = book.author;
-      categoryCol.innerText = book.category;
-      priorityCol.innerText = book.priority;
-
-      let bookNr = savedBooks.length;
-
-      const bookObj = {
-        title: titleCol.innerText,
-        author: authorCol.innerText,
-        category: categoryCol.innerText,
-        priority: priorityCol.innerText,
-        nr: bookNr,
-      };
+      const bookObj = createBook(
+        book.title,
+        book.author,
+        book.category,
+        book.priority
+      );
 
       savedBooks.push(bookObj);
-
-      row.appendChild(titleCol);
-      row.appendChild(authorCol);
-      row.appendChild(categoryCol);
-      row.appendChild(priorityCol);
-      priorityCol.appendChild(deleteBtn);
-      tbodyEl.appendChild(row);
-
-      deleteBtn.addEventListener("click", (e) => {
-        deleteRow(e);
-      });
-      row.addEventListener("click", (e) => {
-        activateRow(e);
-      });
-
-      counterEl.innerText = countRows();
     });
+    counterEl.innerText = countRows();
   }
 
   if (localStorage.getItem("categories") === null) {
@@ -372,37 +296,9 @@ function sortTable(e, asc = true) {
   }
 
   sortedTable.forEach((book) => {
-    const row = document.createElement("tr");
-    const titleCol = document.createElement("td");
-    const authorCol = document.createElement("td");
-    const categoryCol = document.createElement("td");
-    const priorityCol = document.createElement("td");
-
-    const deleteBtn = document.createElement("button");
-    deleteBtn.classList.add("delete-btn");
-    deleteBtn.innerHTML = '<i class="fas fa-times"></i>';
-
-    titleCol.innerText = book.title;
-    authorCol.innerText = book.author;
-    categoryCol.innerText = book.category;
-    priorityCol.innerText = book.priority;
-
-    row.appendChild(titleCol);
-    row.appendChild(authorCol);
-    row.appendChild(categoryCol);
-    row.appendChild(priorityCol);
-    priorityCol.appendChild(deleteBtn);
-    tableBodyEl.appendChild(row);
-
-    deleteBtn.addEventListener("click", (e) => {
-      deleteRow(e);
-    });
-    row.addEventListener("click", (e) => {
-      activateRow(e);
-    });
+    createBook(book.title, book.author, book.category, book.priority);
   });
 
-  const columnHead = e.target;
   columnHeads.forEach((head) => {
     head.classList.remove("sort-asc", "sort-desc");
   });
@@ -481,10 +377,6 @@ function saveCategory(category) {
 function editBook(e) {
   e.preventDefault();
 
-  const inputTitle = document.querySelector(".title");
-  const inputAuthor = document.querySelector(".author");
-  const inputCategory = document.querySelector(".category");
-  const inputPriority = document.querySelector(".priority");
   const row = document.querySelector("tr.active");
 
   if (row) {
@@ -511,7 +403,6 @@ function editBook(e) {
     </button>
     `;
 
-    console.log(row.children[3].children[0]);
     row.children[3].children[0].addEventListener("click", (e) => {
       deleteRow(e);
     });
@@ -523,4 +414,44 @@ function editBook(e) {
 
   makeCategories();
   localStorage.setItem("books", JSON.stringify(savedBooks));
+}
+
+function createBook(title, author, category, priority) {
+  const row = document.createElement("tr");
+  const titleCol = document.createElement("td");
+  const authorCol = document.createElement("td");
+  const categoryCol = document.createElement("td");
+  const priorityCol = document.createElement("td");
+
+  const deleteBtn = document.createElement("button");
+  deleteBtn.classList.add("delete-btn");
+  deleteBtn.innerHTML = '<i class="fas fa-times"></i>';
+
+  titleCol.innerText = title;
+  authorCol.innerText = author;
+  categoryCol.innerText = category;
+  priorityCol.innerText = priority;
+
+  row.appendChild(titleCol);
+  row.appendChild(authorCol);
+  row.appendChild(categoryCol);
+  row.appendChild(priorityCol);
+  priorityCol.appendChild(deleteBtn);
+  tableBodyEl.appendChild(row);
+
+  deleteBtn.addEventListener("click", (e) => {
+    deleteRow(e);
+  });
+  row.addEventListener("click", (e) => {
+    activateRow(e);
+  });
+
+  const bookObj = {
+    title,
+    author,
+    category,
+    priority,
+  };
+
+  return bookObj;
 }
