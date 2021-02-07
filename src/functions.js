@@ -148,10 +148,12 @@ function deleteRow(e) {
   const row = priorityCol.parentElement;
   row.classList.remove("active");
   priorityCol.classList.remove("active");
+
   row.remove();
   counterEl.innerText = countRows();
   deleteObject(row);
   makeCategories();
+
   if (row.classList.contains("active")) {
     changeBookBtn.classList.add("active");
   } else {
@@ -502,6 +504,12 @@ function editBook(e) {
       <i class="fas fa-times"></i>
     </button>
     `;
+
+    console.log(row.children[3].children[0]);
+    row.children[3].children[0].addEventListener("click", (e) => {
+      deleteRow(e);
+    });
+
     const deleteBtn = document.querySelector(".delete-btn.active");
     deleteBtn.classList.remove("active");
     row.classList.remove("active");

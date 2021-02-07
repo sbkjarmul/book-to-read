@@ -80,4 +80,5 @@ newCategoryBtn.addEventListener("click", () => {
 
 changeBookBtn.addEventListener("click", (e) => {
   editBook(e);
+  changeBookBtn.classList.remove("active");
 });
