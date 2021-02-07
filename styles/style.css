@@ -316,6 +316,8 @@ form .form-box select.filter-option {
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
+  margin-left: 3rem;
+  margin-right: 3rem;
 }
 
 .stats {
@@ -469,6 +471,15 @@ button.close-category {
     font-size: 0.5rem;
   }
 
+  .advanced {
+    height: 25rem;
+    transform: translateY(-25rem);
+  }
+
+  .container.advance {
+    transform: translateY(24.5rem);
+  }
+
   .add-book {
     padding: 0.8rem 1.2rem !important;
     font-size: 0.9rem !important;
@@ -481,5 +492,32 @@ button.close-category {
   .delete-btn {
     transform: translate(2rem, -50%) !important;
     font-size: 0.8rem !important;
+  }
+}
+
+@media (max-width: 375px) {
+  h1 {
+    font-size: 1.2rem !important;
+  }
+
+  .advanced {
+    height: 32rem;
+    transform: translateY(-32rem);
+  }
+
+  .advanced form .form-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .container.advance {
+    transform: translateY(31.5rem);
+  }
+
+  .advanced form .form-box label,
+  .advanced form .form-box select,
+  .advanced form .form-box input[type="text"] {
+    margin: 0.5rem;
   }
 }
