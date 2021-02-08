@@ -1,6 +1,6 @@
 # Books To Read
 
-This is a tool for saving books, which you want to read later.
+This is a tool for saving books, that you want to read later.
 
 ## About the project
 
